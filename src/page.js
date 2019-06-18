@@ -55,7 +55,7 @@ class Page extends React.Component{
       }
     );
     this.setState({
-      comments : curComment,
+      comments : [...this.state.comments,...curComment],
       numberOfComment: 3,
     });
   }
@@ -81,11 +81,13 @@ class Page extends React.Component{
     this.setState(
       (state) => (
         {
+          //comments : [...state.comments,...curComments],
           numberOfComment : (state.numberOfComment + 1),
         })
     );
   }
   render(){
+    console.log(this.state.comments);
     const showComments=this.state.comments.map(
       (obj,index) => {
         //alert(obj.commentTime);
